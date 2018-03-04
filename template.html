@@ -1,0 +1,21 @@
+<form id="barcode_form" onsubmit="search_gtin()">
+    <input id="searchfield" type="text" size="30" autocomplete="off" id="gtin_form">
+    <br><br>
+    <div>
+        <input type="radio" id="field1"
+               name="field" value="EAN13"
+               checked="checked    ">
+        <label for="field1">EAN 13</label>
+        <br>
+        <input type="radio" id="field2"
+               name="field" value="CODE128">
+        <label for="field2">CODE 128</label>
+    </div>
+</form>
+<br>
+<span id="searchbutton" class="mybutton" onclick="generate_barcode()">
+    Create Barcode
+</span>
+<br>
+<div id="barcode_svg"></div>
+<br>

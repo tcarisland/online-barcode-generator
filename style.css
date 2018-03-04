@@ -1,0 +1,15 @@
+form {
+    display: block;
+    border: 1px solid black;
+    padding: 1em 1em 1em 1em;
+}
+
+.mybutton {
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    display: block;
+    padding: .5em .5em .5em .5em;
+    cursor: pointer;
+    width: 140px;
+}
