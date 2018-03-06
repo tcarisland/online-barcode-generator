@@ -57,15 +57,23 @@
             $height = 150;
             $offset = 0;
             $barwidth = 3;
+            $pad = 20;
             for($i = 0; $i < strlen($sequence); $i++) {
                 $width += $this->get_int_val($sequence, $i, 1) * $barwidth;
             }
-            $svg_string = "<svg width='" . $width . "' height='" . $height . "'>\n";
+            $svg_string = "<svg width='" . $width . "' height='" . ($height + 30) . "'>\n";
             for($i = 0; $i < strlen($sequence); $i++) {
                 $curval = $this->get_int_val($sequence, $i, 1);
                 $rectwidth = $curval * $barwidth;
                 if($i % 2 == 0) {
-                    $rectangle = "<rect y='0' x='" . $offset . "' width='" . $rectwidth . "' height='" . $height . "' style='fill: rgb(0, 0, 0)'/>\n";
+                    $myheight = $height;
+                    if($offset > 45 * $barwidth && $offset < 50 * $barwidth) {
+                        $myheight += $pad;
+                    }
+                    if($offset < 3 * $barwidth || $offset > 90 * $barwidth) {
+                        $myheight += $pad;
+                    }
+                    $rectangle = "<rect y='0' x='" . $offset . "' width='" . $rectwidth . "' height='" . $myheight . "' style='fill: rgb(0, 0, 0)'/>\n";
                 } else {
                     $rectangle = "<rect y='0' x='" . $offset . "' width='" . $rectwidth . "' height='" . $height . "' style='fill: rgb(255, 255, 255)'/>\n";
                 }
